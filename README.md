@@ -1,4 +1,4 @@
-# Golden Rose App
+# Golden Rose App - in process
 
 https://elegant-lumiere-7bbabc.netlify.app/#
 
