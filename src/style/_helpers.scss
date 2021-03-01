@@ -1,0 +1,15 @@
+.link {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.active-day {
+  background-color: $extra-rose !important;
+}

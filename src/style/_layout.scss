@@ -1,0 +1,126 @@
+//App itself
+
+.app {
+  width: 100rem;
+  height: 60rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 3.5rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 10rem 1fr;
+
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.384);
+
+  .menu {
+    height: 100%;
+    position: relative;
+    background-color: $secondary-color;
+    box-shadow: 1rem 0rem 1rem rgba(95, 50, 50, 0.137);
+    z-index: 1;
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    justify-items: center;
+
+    &__header {
+      font-size: 1.4rem;
+      color: $extra-rose;
+      text-align: right;
+      width: 50%;
+      padding-top: 3.5rem;
+      span {
+        color: black;
+      }
+    }
+
+    .nav {
+      display: grid;
+      grid-template-rows: repeat(auto-fill, 3rem);
+      grid-row-gap: 5rem;
+      &__item {
+        font-size: 2rem;
+        transition: all 0.4s;
+        position: relative;
+
+        &:link,
+        &:visited {
+          text-decoration: none;
+          color: black;
+        }
+
+        &:hover {
+          font-size: 3rem;
+        }
+
+        &:last-of-type {
+          grid-row-start: 5;
+          grid-row-end: 6;
+        }
+
+        &:focus {
+          &::before {
+            content: "";
+            height: 5rem;
+            width: 3rem;
+            background-color: $extra-rose;
+            position: absolute;
+            left: -5.5rem;
+            top: -1.5rem;
+            border-radius: 1rem;
+            animation: mainNavAnimation 1s;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    height: 100%;
+    overflow: scroll;
+    background-image: url("../img/background.png");
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+//Search tab
+
+.search {
+  width: 100%;
+  height: 100%;
+  background-color: $secondary-color;
+  padding: 4rem;
+
+  &__input {
+    width: 70%;
+    padding: 1rem;
+    border: none;
+    background-color: $extra-grey;
+    border-radius: 1.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.pay {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.item-cart-num {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: $extra-red;
+  top: -1rem;
+  left: 1.8rem;
+}

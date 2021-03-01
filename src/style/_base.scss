@@ -1,0 +1,24 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  background-color: $primary-color;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
