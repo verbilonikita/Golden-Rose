@@ -111,6 +111,18 @@
   height: 100%;
   background-color: white;
   background-image: url(../img/error.png);
+  position: relative;
+
+  h3 {
+    position: absolute;
+    top: 50%;
+    font-size: 4rem;
+    width: 100%;
+    text-align: center;
+    background-color: $extra-red;
+    padding: 2rem;
+    color: white;
+  }
 }
 
 .item-cart-num {
