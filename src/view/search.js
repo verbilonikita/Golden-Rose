@@ -19,7 +19,6 @@ function Search(props) {
             const value = e.target.children[0].value;
             e.target.children[0].value = "";
             const data = await Menu(value);
-            console.log(data);
             props.state.setMenuRecipes(data);
             const randomNum = Math.floor(Math.random() * data.length);
             const randomRecipe = data.filter((_, i) => i === randomNum);

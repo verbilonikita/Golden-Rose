@@ -44,7 +44,6 @@ function Cart(props) {
               const newFavourites = props.state.cart.filter((el) => {
                 return el.title !== myEl.dataset.title;
               });
-              console.log(newFavourites);
               props.state.updateCart(newFavourites);
             }}
           >
