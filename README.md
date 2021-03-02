@@ -10,5 +10,7 @@ Halfway completed, but the most important features are implemented:
 
 Items are searchable, menu is created dynamically, items can be added to cart and liked, page switcher implemented.
 
-Still to do: payment page and fix some issues on search page (I do not like the way it looks).
++ Ingredients not working on cart page, as ingredietns from API are not structured as I want them to be, so added random markup.
+
+Still to do: payment page and fix some design issues on search page.
 
