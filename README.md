@@ -1,5 +1,7 @@
 # Golden Rose App - in process
 
+### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
+
 https://elegant-lumiere-7bbabc.netlify.app/#
 
 React/Redux/SASS
