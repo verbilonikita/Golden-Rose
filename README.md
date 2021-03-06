@@ -2,6 +2,8 @@
 
 ### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
 
+Some grid, some flexbox.
+
 https://elegant-lumiere-7bbabc.netlify.app/#
 
 React/Redux/SASS
