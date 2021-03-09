@@ -2,13 +2,14 @@
 
 ### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
 
-Some grid, some flexbox.
+Used:
+1. React
+2. Redux
+3. Custom API (currently being updated, so old API inserted).
 
 https://elegant-lumiere-7bbabc.netlify.app/#
 
-It has 4 pages, but payment page will open once you put something in cart and press order now
-
-React/Redux/SASS
+### It has 4 pages, but payment page will open once you put something in cart and press order now
 
 Used the same API as for MealMaker (as for now)
 
