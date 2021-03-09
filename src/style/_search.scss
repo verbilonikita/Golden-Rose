@@ -1,12 +1,13 @@
 .search {
-  background-size: 80%;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: white;
   position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: $secondary-color;
+  padding: 4rem;
 
   &__form {
     position: absolute;
+    top: 10%;
     left: 50%;
     width: 80%;
     transform: translateX(-50%);
@@ -14,17 +15,14 @@
 
   &__input {
     width: 100%;
-  }
+    padding: 1rem;
+    border: none;
+    background-color: $extra-grey;
+    border-radius: 1.5rem;
 
-  &__preview {
-    width: 80%;
-    height: auto;
-    margin-top: 3rem;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden;
+    &:focus {
+      outline: none;
+    }
   }
 
   &__header {
@@ -55,70 +53,6 @@
   }
 }
 
-.item {
-  padding: 3rem;
-  height: 45rem;
-  width: 35rem;
-  border-radius: 2rem;
-  text-align: center;
-  font-size: 2rem;
-  background-color: rgba($extra-rose, 0.5);
-
-  & > *:not(:first-child) {
-    margin-top: 2rem;
-  }
-
-  &-pic {
-    height: 25rem;
-    width: 30rem;
-    background-size: cover;
-    border-radius: 2rem;
-  }
-
-  &-name {
-    color: $extra-font-grey;
-  }
-
-  &-link {
-    display: inline-block;
-    padding: 1rem 4rem;
-    border-radius: 4rem;
-    background-color: $extra-rose;
-    font-size: 1.5rem;
-    transition: all 0.3s;
-
-    &:hover {
-      background-color: $extra-red;
-      transform: translateY(-2px);
-    }
-
-    &:active {
-      transform: translateY(2px);
-    }
-  }
-
-  &-btn {
-    padding: 1rem 3rem;
-    border-radius: 4rem;
-    background-color: $extra-red;
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    color: white;
-    font-size: 2rem;
-    transition: all 0.2s;
-
-    &:hover {
-      transform: translateY(-2px);
-      background-color: $extra-rose;
-    }
-
-    &:active {
-      transform: translateY(2px);
-    }
-  }
-}
-
 .search__error {
   width: 100%;
   height: 80%;
@@ -145,4 +79,59 @@
     top: 50%;
     transform: translate(-60%, -50%);
   }
+}
+
+.search__preview {
+  position: absolute;
+  top: 20%;
+  width: calc(100% - 8rem);
+  height: calc(100% - 20% - 4rem);
+  overflow: scroll;
+  padding: 2rem;
+
+  display: grid;
+  grid-template-rows: repeat(3, 15rem);
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: row;
+  grid-auto-rows: 15rem;
+  grid-auto-columns: 1fr;
+  grid-gap: 2rem;
+
+  &-info {
+    & > *:not(:last-child) {
+      padding-bottom: 2rem;
+    }
+  }
+
+  &-item {
+    padding: 2rem;
+    background-color: greenyellow;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1.5rem;
+
+    &:hover {
+      box-shadow: 0rem 1rem 1rem rgba($extra-red, 0.3);
+    }
+
+    &:focus {
+      border: 1px solid $extra-rose;
+    }
+  }
+
+  &-img {
+    width: 10rem;
+    object-fit: cover;
+    height: 100%;
+    border-radius: 1.5rem;
+  }
+
+  // &-name {
+  //   width: 100%;
+  //   text-align: center;
+  // }
+
+  // &-order {
+  //   margin-top: auto;
+  // }
 }

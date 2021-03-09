@@ -59,7 +59,7 @@
         &-img {
           // width: 100%;
           object-fit: cover;
-          min-width: 10rem;
+          width: 8rem;
           height: 10rem;
           padding-left: 1rem;
         }
@@ -110,7 +110,7 @@
       &-header {
         font-weight: 600;
         grid-column: 1 / -1;
-        padding-left: 2rem;
+        padding-left: 1rem;
       }
 
       &-ing {
@@ -158,9 +158,11 @@
 
   // Order
   &__list {
+    margin-left: auto;
     width: 30%;
     height: 100%;
     background-color: #ffecef;
+    box-shadow: -1rem 0rem 4rem rgba(0, 0, 0, 0.137);
 
     &-header {
       height: 12%;
@@ -196,8 +198,8 @@
       }
 
       &-img {
-        height: 7rem;
-        width: 7rem;
+        object-fit: cover;
+        width: 5rem;
         display: inline-block;
         border-radius: 1.5rem;
       }

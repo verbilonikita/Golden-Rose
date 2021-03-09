@@ -18,28 +18,19 @@ import { Catalogue } from "./view/catalogue";
 //Redux
 import * as ACTIONS from "./redux/actions";
 import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function App(props) {
+  const [cartNum, setCartNum] = useState(0);
+
   useEffect(() => {
     if (props.cart.length > 0) {
-      console.log("yes");
-      showBookmarked();
+      setCartNum(props.cart.length);
     }
-
     if (props.cart.length === 0) {
-      hideBookmarked();
+      setCartNum(0);
     }
   }, [props.cart]);
-
-  function showBookmarked() {
-    document.querySelector(".item-cart-num").innerHTML = props.cart.length;
-    document.querySelector(".item-cart-num").classList.remove("hidden");
-  }
-
-  function hideBookmarked() {
-    document.querySelector(".item-cart-num").classList.add("hidden");
-  }
 
   return (
     <div className="app">
@@ -56,11 +47,20 @@ function App(props) {
             }}
           >
             <AiOutlineShoppingCart />
-            <figure className="item-cart-num"></figure>
+            <div
+              className="item-cart-num"
+              style={cartNum ? { display: "block" } : { display: "none" }}
+            >
+              {cartNum ? cartNum : ""}
+            </div>
           </a>
-          <a href="#" className="nav__item item-card link">
-            <AiFillCreditCard onClick={() => props.pageChanger(2)} />
-          </a>
+          {props.currentPage === 2 ? (
+            <a href="#" className="nav__item item-card link">
+              <AiFillCreditCard onClick={() => props.pageChanger(2)} />
+            </a>
+          ) : (
+            ""
+          )}
           <a
             href="#"
             className="nav__item item-catalogue link"
@@ -81,9 +81,14 @@ function App(props) {
         {props.currentPage === 1 ? (
           <Cart state={props} bin={<BiTrash />} />
         ) : props.currentPage === 2 ? (
-          <Pay />
+          <Pay state={props} />
         ) : props.currentPage === 3 ? (
-          <Search state={props} />
+          <Search
+            state={props}
+            heartEmpty={<AiOutlineHeart />}
+            heartFill={<AiFillHeart />}
+            iconInfo={<AiOutlineInfoCircle />}
+          />
         ) : props.currentPage === 4 ? (
           <Catalogue
             state={props}

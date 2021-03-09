@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
-import cakepreview from "../img/cake-preview.png";
+import React, { useEffect, useState } from "react";
 import { Menu, RenderMenu } from "./menu";
+import cake from "../img/cake.png";
 
 export function Catalogue(props) {
-  useEffect(() => {
-    props.state.anyMarkup([]);
-  }, [props.state.page]);
-
   useEffect(() => {
     if (props.state.request) {
       setMenu(props.state.request);
@@ -24,14 +20,14 @@ export function Catalogue(props) {
 
       // activeItem(data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   }
 
   return (
     <section className="catalogue">
       <div className="catalogue__head">
-        <h3 className="catalogue__header">Catalogue</h3>
+        <h3 className="catalogue-header">Catalogue</h3>
         <nav className="catalogue__nav">
           <a
             href="#"
@@ -64,7 +60,7 @@ export function Catalogue(props) {
             className="catalogue__main-preview"
             src={
               !props.state.currentMenuItem.image_url
-                ? cakepreview
+                ? cake
                 : props.state.currentMenuItem.image_url
             }
             alt="cake preview"
@@ -127,5 +123,3 @@ export function Catalogue(props) {
     </section>
   );
 }
-
-// Example (Menu Item);

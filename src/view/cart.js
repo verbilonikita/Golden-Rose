@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function Cart(props) {
   useEffect(() => {
@@ -56,6 +56,10 @@ function Cart(props) {
     props.state.anyMarkup([markupOrder, markupPayment]);
   }, [props.state.favouriteCakes, props.state.cart]);
 
+  const [day, setDay] = useState("");
+
+  //Direct DOM manipulation as for now, will change to day later
+  // ++ Days hardcded as well
   function deliveryDate(e) {
     const me = e.target.closest(".link").dataset.day;
     const siblings = e.target.closest(".cart__favorites__footer").childNodes;
@@ -218,7 +222,13 @@ function Cart(props) {
           </div>
         </div>
         <div className="cart__order">
-          <a className="cart__order-button link" href="#">
+          <a
+            className="cart__order-button link"
+            href="#"
+            onClick={() => {
+              props.state.pageChanger(2);
+            }}
+          >
             Order Now
           </a>
           <p>We will call you back to finalise the order! </p>
