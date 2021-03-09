@@ -1,4 +1,4 @@
-# Golden Rose App - in process
+# Golden Rose App - in process, will update with custom API soon
 
 ### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
 
@@ -8,7 +8,7 @@ https://elegant-lumiere-7bbabc.netlify.app/#
 
 React/Redux/SASS
 
-Used the same API as for MealMaker
+Used the same API as for MealMaker (as for now)
 
 Halfway completed, but the most important features are implemented:
 
