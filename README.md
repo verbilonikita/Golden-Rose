@@ -6,6 +6,8 @@ Some grid, some flexbox.
 
 https://elegant-lumiere-7bbabc.netlify.app/#
 
+It has 4 pages, but payment page will open once you put something in cart and press order now
+
 React/Redux/SASS
 
 Used the same API as for MealMaker (as for now)
