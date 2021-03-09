@@ -1,4 +1,4 @@
-# Golden Rose App - in process, will update with custom API soon
+# Golden Rose App - in process, currently updating my API and will add soon, then refactor
 
 ### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
 
