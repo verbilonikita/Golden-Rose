@@ -11,6 +11,9 @@ https://elegant-lumiere-7bbabc.netlify.app/#
 
 ### It has 4 pages, but payment page will open once you put something in cart and press order now
 
+
+#### Some hardcoded values (date) + small direct DOM manipulation (later to change with state) + needs to be refactored, still in process
+
 Used the same API as for MealMaker (as for now)
 
 Halfway completed, but the most important features are implemented:
