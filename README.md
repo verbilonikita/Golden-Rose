@@ -1,4 +1,5 @@
-# Golden Rose App - in process, will update with custom API soon
+# Golden Rose App - in process, currently updating my API and will add soon, then refactor
+At the moment still has API from mealmaker
 
 ### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
 
@@ -10,6 +11,9 @@ Used:
 https://elegant-lumiere-7bbabc.netlify.app/#
 
 ### It has 4 pages, but payment page will open once you put something in cart and press order now
+
+
+#### Some hardcoded values (date) + small direct DOM manipulation (later to change with state) + needs to be refactored, still in process
 
 Used the same API as for MealMaker (as for now)
 
