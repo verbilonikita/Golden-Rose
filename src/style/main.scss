@@ -3,9 +3,10 @@
 @import "./animation";
 
 @import "./layout";
-@import "./catalogue";
-@import "./cart";
-@import "./search";
-@import "./pay";
+
+@import "./pages/catalogue";
+@import "./pages/cart";
+@import "./pages/search";
+@import "./pages/pay";
 
 @import "./base";

@@ -8,28 +8,24 @@ import {
   AiOutlineInfoCircle,
 } from "react-icons/ai";
 import { BiCake, BiTrash } from "react-icons/bi";
+import { useEffect, useState } from "react";
 
 //Modules
 import Search from "./view/search";
 import Pay from "./view/pay";
 import Cart from "./view/cart";
 import { Catalogue } from "./view/catalogue";
+import * as effectHooks from "./controller/effectHooks";
 
 //Redux
 import * as ACTIONS from "./redux/actions";
 import { connect } from "react-redux";
-import { useEffect, useState } from "react";
 
 function App(props) {
-  const [cartNum, setCartNum] = useState(0);
+  const [cartItemsNum, setcartItemsNum] = useState(0);
 
   useEffect(() => {
-    if (props.cart.length > 0) {
-      setCartNum(props.cart.length);
-    }
-    if (props.cart.length === 0) {
-      setCartNum(0);
-    }
+    effectHooks.updateCart(props, setcartItemsNum);
   }, [props.cart]);
 
   return (
@@ -49,9 +45,9 @@ function App(props) {
             <AiOutlineShoppingCart />
             <div
               className="item-cart-num"
-              style={cartNum ? { display: "block" } : { display: "none" }}
+              style={cartItemsNum ? { display: "block" } : { display: "none" }}
             >
-              {cartNum ? cartNum : ""}
+              {cartItemsNum ? cartItemsNum : ""}
             </div>
           </a>
           {props.currentPage === 2 ? (
@@ -113,7 +109,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    showCakes: () => dispatch(ACTIONS.showCakes()),
     currentRequest: (type) => dispatch(ACTIONS.request(type)),
     pageChanger: (page) => dispatch(ACTIONS.pageChanger(page)),
     setMenuRecipes: (query) => dispatch(ACTIONS.setMenu(query)),

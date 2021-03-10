@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Menu, RenderMenu } from "./menu";
 import cake from "../img/cake.png";
 

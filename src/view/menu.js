@@ -32,7 +32,11 @@ function createMarkup(recipe, props) {
       className="catalogue__item link"
       key={recipe.recipe_id}
     >
-      <img className="catalogue__item__image" src={recipe.image_url}></img>
+      <img
+        className="catalogue__item__image"
+        src={recipe.image_url}
+        alt="cake"
+      ></img>
       <div className="catalogue__item__info">
         <div className="catalogue__item__info-price">£{randomPrice}.99</div>
         <div className="catalogue__item__info-name">{recipe.title}</div>
