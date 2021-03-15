@@ -1,5 +1,5 @@
 # Golden Rose App - in process, currently updating my API and will add soon, then refactor
-At the moment still has API from mealmaker
+At the moment still has API from mealmaker, new API coming (will be very simple).
 
 ### On search page type "CAKE" || "DONUTS" || "CHOCOLATE"
 
