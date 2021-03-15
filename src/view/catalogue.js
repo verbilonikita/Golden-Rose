@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { Menu, RenderMenu } from "./menu";
+import cakePreview from "../img/cake.png";
 
 export function Catalogue(props) {
+  console.log(props.state.currentMenuItem.image_url);
   useEffect(() => {
     if (props.state.request) {
       setMenu(props.state.request);
@@ -48,7 +50,7 @@ export function Catalogue(props) {
           <img
             className="catalogue__main-preview"
             style={!props.state.currentMenuItem.image_url ? {} : { objectFit: "cover" }}
-            src={!props.state.currentMenuItem.image_url ? "/static/media/cake.f22affae.png" : props.state.currentMenuItem.image_url}
+            src={!props.state.currentMenuItem.image_url ? cakePreview : props.state.currentMenuItem.image_url}
             alt="cake preview"></img>
           <h3 className="catalogue__main-name">{!props.state.currentMenuItem.title ? "Select your cake!" : props.state.currentMenuItem.title}</h3>
           <a

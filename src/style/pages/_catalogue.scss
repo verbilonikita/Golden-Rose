@@ -221,9 +221,15 @@
 
   &__intro {
     position: absolute;
-    top: 30%;
+    top: 10%;
     right: 10%;
     font-size: 2rem;
     color: rgba($extra-red, 0.7);
+    background-image: url(../../img/catalogue-char.png);
+    background-size: 15rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 10rem;
+    padding-top: 20rem;
   }
 }

@@ -29,13 +29,9 @@ function App(props) {
         </h1>
         <nav className="nav">
           <a
-            href=""
+            href="#"
             className="nav__item item-cart link"
             onClick={async (e) => {
-              e.preventDefault();
-              const bla = await fetch("/bla");
-              const bla2 = await bla.json();
-              console.log(bla2);
               props.pageChanger(1);
             }}>
             <AiOutlineShoppingCart />
