@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Menu, RenderMenu } from "./menu";
-import cake from "../img/cake.png";
 
 export function Catalogue(props) {
   useEffect(() => {
@@ -17,8 +16,6 @@ export function Catalogue(props) {
       const markup = await RenderMenu(data, props);
       props.state.currentRequest(type);
       props.state.anyMarkup(markup);
-
-      // activeItem(data);
     } catch (err) {
       console.error(err);
     }
@@ -34,80 +31,50 @@ export function Catalogue(props) {
             className="link catalogue__nav-link cakes"
             onClick={() => {
               setMenu("cake");
-            }}
-          >
+            }}>
             Cakes
           </a>
-          <a
-            href="#"
-            className="link catalogue__nav-link desserts"
-            onClick={() => setMenu("chocolate")}
-          >
+          <a href="#" className="link catalogue__nav-link desserts" onClick={() => setMenu("chocolate")}>
             Chocolate
           </a>
-          <a
-            href="#"
-            className="link catalogue__nav-link muffins"
-            onClick={() => setMenu("donuts")}
-          >
+          <a href="#" className="link catalogue__nav-link muffins" onClick={() => setMenu("donuts")}>
             Donuts
           </a>
         </nav>
       </div>
       <div className="catalogue__info">
+        {props.state.markup ? "" : <h3 className="catalogue__intro">Please choose your desserts!</h3>}
         <div className="catalogue__main">
           <img
             className="catalogue__main-preview"
-            src={
-              !props.state.currentMenuItem.image_url
-                ? cake
-                : props.state.currentMenuItem.image_url
-            }
-            alt="cake preview"
-          ></img>
-          <h3 className="catalogue__main-name">
-            {!props.state.currentMenuItem.title
-              ? "Select your cake!"
-              : props.state.currentMenuItem.title}
-          </h3>
+            style={!props.state.currentMenuItem.image_url ? {} : { objectFit: "cover" }}
+            src={!props.state.currentMenuItem.image_url ? "/static/media/cake.f22affae.png" : props.state.currentMenuItem.image_url}
+            alt="cake preview"></img>
+          <h3 className="catalogue__main-name">{!props.state.currentMenuItem.title ? "Select your cake!" : props.state.currentMenuItem.title}</h3>
           <a
             className="link catalogue__main-order"
             onClick={() => {
-              if (
-                props.state.cart.some(
-                  (el) => el.title === props.state.currentMenuItem.title
-                )
-              ) {
+              if (props.state.cart.some((el) => el.title === props.state.currentMenuItem.title)) {
                 return;
               }
               if (props.state.cart.length >= 0) {
                 props.state.addToCart(props.state.currentMenuItem);
               }
-            }}
-          >
+            }}>
             Add To Cart
           </a>
           <div
             className="catalogue__main-info"
             onMouseEnter={() => {
-              document
-                .querySelector(".catalogue__main-info__popup")
-                .classList.remove("hidden");
+              document.querySelector(".catalogue__main-info__popup").classList.remove("hidden");
             }}
             onMouseLeave={() => {
-              document
-                .querySelector(".catalogue__main-info__popup")
-                .classList.add("hidden");
-            }}
-          >
+              document.querySelector(".catalogue__main-info__popup").classList.add("hidden");
+            }}>
             <p>Additional Info</p>
             {props.iconInfo}
             <div className="catalogue__main-info__popup hidden">
-              <h4 className="catalogue__main-info__popup-head">
-                {props.state.currentMenuItem
-                  ? props.state.currentMenuItem.title
-                  : "My Cake"}
-              </h4>
+              <h4 className="catalogue__main-info__popup-head">{props.state.currentMenuItem ? props.state.currentMenuItem.title : "My Cake"}</h4>
               <p className="catalogue__main-info__popup-ing">
                 bla bla bla bla bla
                 <br />
@@ -116,9 +83,7 @@ export function Catalogue(props) {
             </div>
           </div>
         </div>
-        <div className="catalogue__menu">
-          {props.state.markup ? props.state.markup.map((el) => el) : ""}
-        </div>
+        <div className="catalogue__menu">{props.state.markup ? props.state.markup.map((el) => el) : ""}</div>
       </div>
     </section>
   );

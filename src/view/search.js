@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { markup } from "../redux/actions";
 import { Menu, RenderMenu } from "./menu";
 
 //Main Screen
 function Search(props) {
   const [error, setError] = useState("");
+  const [markupSearch, setMarkupSearch] = useState("");
 
   useEffect(() => {
-    if (props.state.markup) setMenu(props.state.request);
+    if (markupSearch) setMenu(props.state.request);
   }, [props.state.favouriteCakes]);
 
   //Set Menu
@@ -17,11 +19,11 @@ function Search(props) {
       const data = await Menu(value);
       props.state.setMenuRecipes(data);
       const markup = await RenderMenu(data, props);
-      props.state.anyMarkup(markup);
+      setMarkupSearch(markup);
       setError("");
     } catch (err) {
       const newErr = String(err).slice(7).toUpperCase();
-      props.state.anyMarkup("");
+      setMarkupSearch("");
       setError(newErr);
     }
   }
@@ -35,13 +37,12 @@ function Search(props) {
           const value = e.target.children[0].value;
           e.target.children[0].value = "";
           setMenu(value);
-        }}
-      >
+        }}>
         <input className="search__input" type="text"></input>
       </form>
       {error ? <Error error={error} /> : ""}
-      {props.state.markup ? <Item state={props.state} /> : ""}
-      {!error && !props.state.markup ? <Initial /> : ""}
+      {markupSearch ? <Item searchItems={markupSearch} /> : ""}
+      {!error && !markupSearch ? <Initial /> : ""}
     </section>
   );
 }
@@ -70,9 +71,5 @@ function Error(state) {
 
 // Items (if something is found);
 function Item(props) {
-  return (
-    <section className="search__preview">
-      {props.state.markup ? props.state.markup.map((el) => el) : ""}
-    </section>
-  );
+  return <section className="search__preview">{props.searchItems ? props.searchItems.map((el) => el) : ""}</section>;
 }

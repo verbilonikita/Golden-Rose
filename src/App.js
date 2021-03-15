@@ -1,12 +1,5 @@
 //Icons
-import {
-  AiOutlineShoppingCart,
-  AiFillCreditCard,
-  AiOutlineSearch,
-  AiOutlineHeart,
-  AiFillHeart,
-  AiOutlineInfoCircle,
-} from "react-icons/ai";
+import { AiOutlineShoppingCart, AiFillCreditCard, AiOutlineSearch, AiOutlineHeart, AiFillHeart, AiOutlineInfoCircle } from "react-icons/ai";
 import { BiCake, BiTrash } from "react-icons/bi";
 import { useEffect, useState } from "react";
 
@@ -36,17 +29,17 @@ function App(props) {
         </h1>
         <nav className="nav">
           <a
-            href="#"
+            href=""
             className="nav__item item-cart link"
-            onClick={() => {
+            onClick={async (e) => {
+              e.preventDefault();
+              const bla = await fetch("/bla");
+              const bla2 = await bla.json();
+              console.log(bla2);
               props.pageChanger(1);
-            }}
-          >
+            }}>
             <AiOutlineShoppingCart />
-            <div
-              className="item-cart-num"
-              style={cartItemsNum ? { display: "block" } : { display: "none" }}
-            >
+            <div className="item-cart-num" style={cartItemsNum ? { display: "block" } : { display: "none" }}>
               {cartItemsNum ? cartItemsNum : ""}
             </div>
           </a>
@@ -57,18 +50,10 @@ function App(props) {
           ) : (
             ""
           )}
-          <a
-            href="#"
-            className="nav__item item-catalogue link"
-            onClick={() => props.pageChanger(4)}
-          >
+          <a href="#" className="nav__item item-catalogue link" onClick={() => props.pageChanger(4)}>
             <BiCake />
           </a>
-          <a
-            href="#"
-            className="nav__item item-search link"
-            onClick={() => props.pageChanger(3)}
-          >
+          <a href="#" className="nav__item item-search link" onClick={() => props.pageChanger(3)}>
             <AiOutlineSearch />
           </a>
         </nav>
@@ -79,19 +64,9 @@ function App(props) {
         ) : props.currentPage === 2 ? (
           <Pay state={props} />
         ) : props.currentPage === 3 ? (
-          <Search
-            state={props}
-            heartEmpty={<AiOutlineHeart />}
-            heartFill={<AiFillHeart />}
-            iconInfo={<AiOutlineInfoCircle />}
-          />
+          <Search state={props} heartEmpty={<AiOutlineHeart />} heartFill={<AiFillHeart />} iconInfo={<AiOutlineInfoCircle />} />
         ) : props.currentPage === 4 ? (
-          <Catalogue
-            state={props}
-            heartEmpty={<AiOutlineHeart />}
-            heartFill={<AiFillHeart />}
-            iconInfo={<AiOutlineInfoCircle />}
-          />
+          <Catalogue state={props} heartEmpty={<AiOutlineHeart />} heartFill={<AiFillHeart />} iconInfo={<AiOutlineInfoCircle />} />
         ) : (
           ""
         )}

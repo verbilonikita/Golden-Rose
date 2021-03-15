@@ -65,7 +65,7 @@
     }
 
     &-preview {
-      object-fit: cover;
+      object-fit: scale-down;
       overflow: hidden;
       background-color: rgba(112, 106, 106, 0.034);
       height: 27rem;
@@ -217,5 +217,13 @@
         }
       }
     }
+  }
+
+  &__intro {
+    position: absolute;
+    top: 30%;
+    right: 10%;
+    font-size: 2rem;
+    color: rgba($extra-red, 0.7);
   }
 }
