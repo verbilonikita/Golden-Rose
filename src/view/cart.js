@@ -16,7 +16,7 @@ function Cart(props) {
             <p className="cart__favorites__box-item-ings">100% organic</p>
             <p className="cart__favorites__box-item-weight">weight: 2kg - 2.2kg</p>
           </div>
-          <img className="cart__favorites__box-item-img" src={el.image_url}></img>
+          <img className="cart__favorites__box-item-img" src={el.image}></img>
         </a>
       );
     });
@@ -24,9 +24,9 @@ function Cart(props) {
     const markupPayment = props.state.cart.map((el) => {
       return (
         <a className="cart__list-finalise__item link" data-title={el.title} key={el.title}>
-          <img className="cart__list-finalise-img" src={el.image_url}></img>
+          <img className="cart__list-finalise-img" src={el.image}></img>
           <p className="cart__list-finalise-name">{el.title}</p>
-          <p className="cart__list-finalise-price">£29.99</p>
+          <p className="cart__list-finalise-price">{el.price}</p>
           <p
             className="cart__list-finalise-bin"
             onClick={(e) => {
@@ -126,60 +126,3 @@ function Cart(props) {
 }
 
 export default Cart;
-
-// function deliveryDate(e) {
-//   const me = e.target.closest(".link").dataset.day;
-//   const siblings = e.target.closest(".cart__favorites__footer").childNodes;
-//   siblings.forEach((el) => el.classList.remove("active-day"));
-//   switch (me) {
-//     case "Mon":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Wed") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//     case "Tue":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Thu") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//     case "Wed":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Fri") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//     case "Thu":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Sat") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//     case "Fri":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Sun") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//     case "Sat":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Mon") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//     case "Sun":
-//       siblings.forEach((el) => {
-//         if (el.dataset.day === "Tue") {
-//           el.classList.add("active-day");
-//         }
-//       });
-//       break;
-//   }
-// }

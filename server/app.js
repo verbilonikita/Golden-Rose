@@ -24,15 +24,15 @@ app.get("/api/:type", async (req, res) => {
     const query = req.params.type;
     const correctValues = ["cake", "brownies", "cheesecake"];
     if (correctValues.some((el) => el === query)) {
-      // throw new Error("Please type valid parameter");
       const data = await Menu.find({ type: query });
       res.status(200).json({
         status: "success",
         data,
       });
+    } else {
+      throw new Error("Failed to find recipe.");
     }
   } catch (err) {
-    console.log(err.message);
     res.status(404).json({
       status: "critical error",
       message: err,

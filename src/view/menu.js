@@ -2,10 +2,10 @@
 
 export async function Menu(query) {
   try {
-    const data = await fetch(`https://forkify-api.herokuapp.com/api/search?q=${query}`);
-    if (!data.ok) throw new Error("failed to find a recipe try again");
-    const { recipes } = await data.json();
-    return recipes;
+    const fetched = await fetch(`api/${query}`);
+    if (!fetched.ok) throw new Error("failed to find a recipe try again");
+    const { data } = await fetched.json();
+    return data;
   } catch (err) {
     throw err;
   }
@@ -19,7 +19,6 @@ export async function RenderMenu(recipes, props) {
 
 // Create Markup
 function createMarkup(recipe, props) {
-  const randomPrice = Math.ceil(Math.random() * (28 - 30)) + 28;
   const markup = (
     <div
       href="#"
@@ -28,10 +27,10 @@ function createMarkup(recipe, props) {
       }}
       data-id={recipe.recipe_id}
       className="catalogue__item link"
-      key={recipe.recipe_id}>
-      <img className="catalogue__item__image" src={recipe.image_url} alt="cake"></img>
+      key={recipe._id}>
+      <img className="catalogue__item__image" src={recipe.image} alt="cake"></img>
       <div className="catalogue__item__info">
-        <div className="catalogue__item__info-price">£{randomPrice}.99</div>
+        <div className="catalogue__item__info-price">£ {recipe.price}</div>
         <div className="catalogue__item__info-name">{recipe.title}</div>
         <a
           href="#"
@@ -59,9 +58,10 @@ function createMarkup(recipe, props) {
 function eventsForItems(recipe, props, trueFalse) {
   const currentRecipe = {
     title: recipe.title,
-    image_url: recipe.image_url,
-    recipe_id: recipe.recipe_id,
+    image: recipe.image,
+    id: recipe._id,
     bookmarked: trueFalse,
+    price: recipe.price,
   };
   props.state.setMenuItem(currentRecipe);
 

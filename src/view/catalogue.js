@@ -3,7 +3,6 @@ import { Menu, RenderMenu } from "./menu";
 import cakePreview from "../img/cake.png";
 
 export function Catalogue(props) {
-  console.log(props.state.currentMenuItem.image_url);
   useEffect(() => {
     if (props.state.request) {
       setMenu(props.state.request);
@@ -36,11 +35,11 @@ export function Catalogue(props) {
             }}>
             Cakes
           </a>
-          <a href="#" className="link catalogue__nav-link desserts" onClick={() => setMenu("chocolate")}>
-            Chocolate
+          <a href="#" className="link catalogue__nav-link desserts" onClick={() => setMenu("cheesecake")}>
+            Cheesecake
           </a>
-          <a href="#" className="link catalogue__nav-link muffins" onClick={() => setMenu("donuts")}>
-            Donuts
+          <a href="#" className="link catalogue__nav-link muffins" onClick={() => setMenu("brownies")}>
+            Brownies
           </a>
         </nav>
       </div>
@@ -49,8 +48,8 @@ export function Catalogue(props) {
         <div className="catalogue__main">
           <img
             className="catalogue__main-preview"
-            style={!props.state.currentMenuItem.image_url ? {} : { objectFit: "cover" }}
-            src={!props.state.currentMenuItem.image_url ? cakePreview : props.state.currentMenuItem.image_url}
+            style={!props.state.currentMenuItem.image ? {} : { objectFit: "cover" }}
+            src={!props.state.currentMenuItem.image ? cakePreview : props.state.currentMenuItem.image}
             alt="cake preview"></img>
           <h3 className="catalogue__main-name">{!props.state.currentMenuItem.title ? "Select your cake!" : props.state.currentMenuItem.title}</h3>
           <a

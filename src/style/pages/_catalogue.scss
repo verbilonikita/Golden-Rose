@@ -161,6 +161,7 @@
     border-radius: 1.5rem;
     position: relative;
     overflow: hidden;
+    background-color: white;
 
     &:hover {
       box-shadow: 0rem 1rem 1rem rgba($extra-red, 0.3);
@@ -172,8 +173,7 @@
 
     &__image {
       min-height: 75%;
-      width: 100%;
-      object-fit: cover;
+      object-fit: contain;
       overflow: hidden;
     }
     &__info {
