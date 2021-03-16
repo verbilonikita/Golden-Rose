@@ -12,7 +12,7 @@ Used:
 2. Redux
 3. Custom API (currently being updated, so old API inserted).
 
-https://elegant-lumiere-7bbabc.netlify.app/#
+https://elegant-lumiere-7bbabc.netlify.app/# --- only for outline, as server is separate, I will upload heroku later
 
 ### It has 4 pages, but payment page will open once you put something in cart and press order now
 
