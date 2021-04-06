@@ -6,6 +6,9 @@ blablaasda
 
 blablabla
 
+
+sasasasas
+
 ## npm run server - otherwise no pictures will show
 
 At the moment still has API from mealmaker, new API coming (will be very simple).
