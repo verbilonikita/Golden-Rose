@@ -1,5 +1,7 @@
 # Golden Rose App - in process, currently updating my API and will add soon, then refactor
 
+some update
+
 ## npm run server - otherwise no pictures will show
 
 At the moment still has API from mealmaker, new API coming (will be very simple).
